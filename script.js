@@ -1,64 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Page navigation and content loading
+    const pageContent = document.getElementById('pageContent');
     const links = document.querySelectorAll('nav a');
-    const pages = document.querySelectorAll('.page');
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
 
     // Function to load page content
-    async function loadPageContent(pageId) {
+    async function loadPage(pageId) {
         try {
             const response = await fetch(`pages/${pageId}.html`);
+
             if (!response.ok) {
                 throw new Error(`Could not load page: ${pageId}`);
             }
+
             const content = await response.text();
-            const pageElement = document.getElementById(pageId);
-            pageElement.innerHTML = content;
+            pageContent.innerHTML = content;
         } catch (error) {
             console.error('Error loading page:', error);
-            const pageElement = document.getElementById(pageId);
-            pageElement.innerHTML = `<p>Error loading content: ${error.message}</p>`;
+            pageContent.innerHTML = `<p>Error loading content: ${error.message}</p>`;
         }
     }
 
-    // Track loaded pages to avoid re-fetching
-    const loadedPages = new Set();
-
-    // Function to handle page navigation
-    function navigateToPage(pageId) {
-        // Remove active class from all pages
-        pages.forEach(page => page.classList.remove('active'));
-
-        // Add active class to selected page
-        const currentPage = document.getElementById(pageId);
-        currentPage.classList.add('active');
-
-        // Load page content if not already loaded
-        if (!loadedPages.has(pageId)) {
-            loadPageContent(pageId);
-            loadedPages.add(pageId);
-        }
-
-        // Scroll to top smoothly
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Add click event listeners to navigation links
+    // Navigation event listeners
     links.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const pageId = link.getAttribute('data-page');
-            navigateToPage(pageId);
+            loadPage(pageId);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
 
-    // Initial page load
-    navigateToPage('home');
+    // Initial page load (Home)
+    loadPage('home');
 
-    // Dark mode toggle
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const body = document.body;
-
-    // Check for saved dark mode preference
+    // Dark mode toggle logic
     if (localStorage.getItem('darkMode') === 'enabled') {
         body.classList.add('dark-mode');
         darkModeToggle.textContent = '☀️ Light';

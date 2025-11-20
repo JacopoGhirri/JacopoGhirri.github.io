@@ -23,32 +23,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // Track loaded pages to avoid re-fetching
     const loadedPages = new Set();
 
+    // Function to handle page navigation
+    function navigateToPage(pageId) {
+        // Remove active class from all pages
+        pages.forEach(page => page.classList.remove('active'));
+
+        // Add active class to selected page
+        const currentPage = document.getElementById(pageId);
+        currentPage.classList.add('active');
+
+        // Load page content if not already loaded
+        if (!loadedPages.has(pageId)) {
+            loadPageContent(pageId);
+            loadedPages.add(pageId);
+        }
+
+        // Scroll to top smoothly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Add click event listeners to navigation links
     links.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const pageId = link.getAttribute('data-page');
-
-            // Remove active class from all pages
-            pages.forEach(page => page.classList.remove('active'));
-
-            // Add active class to selected page
-            const currentPage = document.getElementById(pageId);
-            currentPage.classList.add('active');
-
-            // Load page content if not already loaded
-            if (!loadedPages.has(pageId)) {
-                loadPageContent(pageId);
-                loadedPages.add(pageId);
-            }
-
-            // Scroll to top smoothly
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateToPage(pageId);
         });
     });
 
-    // Load home page content initially
-    loadPageContent('home');
-    loadedPages.add('home');
+    // Initial page load
+    navigateToPage('home');
 
     // Dark mode toggle
     const darkModeToggle = document.getElementById('darkModeToggle');

@@ -295,3 +295,27 @@ body.dark-mode footer {
 body.dark-mode .publication {
     border-bottom-color: #30363d;
 }
+
+body.dark-mode a {
+    color: #58a6ff; /* Light blue for links in dark mode */
+}
+
+body.dark-mode a:hover {
+    color: #79c3fc; /* Even lighter blue on hover */
+}
+
+/* Banner image styles */
+.banner {
+    width: 100%;
+    height: 250px; /* Adjust height as needed */
+    object-fit: cover;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+    .banner {
+        height: 150px; /* Smaller height on mobile */
+    }
+}

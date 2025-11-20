@@ -297,25 +297,30 @@ body.dark-mode .publication {
 }
 
 body.dark-mode a {
-    color: #58a6ff; /* Light blue for links in dark mode */
+    color: #58a6ff; /* GitHub-style light blue for dark mode */
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 body.dark-mode a:hover {
-    color: #79c3fc; /* Even lighter blue on hover */
+    color: #79c3fc; /* Slightly lighter blue on hover */
+    text-decoration: underline;
 }
 
-/* Banner image styles */
-.banner {
-    width: 100%;
-    height: 250px; /* Adjust height as needed */
-    object-fit: cover;
-    margin-bottom: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+/* Specific link styles for different sections */
+body.dark-mode .contact-links a {
+    background-color: #238636; /* Green background */
+    color: white; /* Ensure white text */
 }
 
-@media (max-width: 768px) {
-    .banner {
-        height: 150px; /* Smaller height on mobile */
-    }
+body.dark-mode .contact-links a:hover {
+    background-color: #2ea043; /* Slightly lighter green on hover */
+}
+
+body.dark-mode .publication a {
+    color: #58a6ff;
+}
+
+body.dark-mode .project a {
+    color: #58a6ff;
 }

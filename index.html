@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jacopo Ghirri</title>
+    <title>Your Name - Personal Website</title>
     <style>
         * {
             margin: 0;
@@ -25,6 +25,9 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         nav ul {
@@ -32,6 +35,34 @@
             display: flex;
             gap: 2rem;
             justify-content: center;
+            flex: 1;
+        }
+
+        .dark-mode-toggle {
+            background: none;
+            border: 2px solid white;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
         }
 
         nav a {
@@ -51,6 +82,12 @@
             padding: 2rem;
         }
 
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+        }
+
         .page {
             display: none;
             background: white;
@@ -58,6 +95,12 @@
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             animation: fadeIn 0.4s;
+        }
+
+        @media (max-width: 768px) {
+            .page {
+                padding: 1.5rem;
+            }
         }
 
         .page.active {
@@ -83,6 +126,23 @@
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .bio {
+                min-width: 100%;
+            }
         }
 
         .bio {
@@ -111,6 +171,8 @@
             display: flex;
             gap: 1rem;
             margin-top: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .contact-links a {
@@ -120,6 +182,7 @@
             text-decoration: none;
             border-radius: 4px;
             transition: background-color 0.3s;
+            font-size: 0.9rem;
         }
 
         .contact-links a:hover {
@@ -186,6 +249,58 @@
             color: #666;
             margin-top: 3rem;
         }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode nav {
+            background-color: #0d1117;
+        }
+
+        body.dark-mode .page {
+            background: #161b22;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3 {
+            color: #58a6ff;
+        }
+
+        body.dark-mode .bio p,
+        body.dark-mode .publication p,
+        body.dark-mode .project p {
+            color: #c9d1d9;
+        }
+
+        body.dark-mode .publication .authors {
+            color: #8b949e;
+        }
+
+        body.dark-mode .project {
+            background-color: #0d1117;
+            border-left-color: #58a6ff;
+        }
+
+        body.dark-mode .contact-links a {
+            background-color: #238636;
+        }
+
+        body.dark-mode .contact-links a:hover {
+            background-color: #2ea043;
+        }
+
+        body.dark-mode footer {
+            color: #8b949e;
+        }
+
+        body.dark-mode .publication {
+            border-bottom-color: #30363d;
+        }
     </style>
 </head>
 <body>
@@ -196,24 +311,23 @@
             <li><a href="#" data-page="projects">Projects</a></li>
             <li><a href="#" data-page="cv">CV</a></li>
         </ul>
+        <button class="dark-mode-toggle" id="darkModeToggle">🌙 Dark</button>
     </nav>
 
     <div class="container">
         <!-- Home Page -->
         <div id="home" class="page active">
             <div class="profile-section">
-                <img src="https://media.licdn.com/dms/image/v2/D4E03AQEE-MThgfj8WQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1686591794861?e=1765411200&v=beta&t=Iq5Bs07oUQg9iG9M7KdYOytkYYw7gmKMvcDZhhPh_74" alt="Jacopo Ghirri" class="profile-image">
+                <img src="https://via.placeholder.com/200" alt="Your Name" class="profile-image">
                 <div class="bio">
-                    <h1>Jacopo Ghirri</h1>
-                    <p><strong>PhD Candidate</strong></p>
-                    <p>I'm a PhD candidate at <a href="https://www.polimi.it/">Politecnico di Milano</a> and the <a href="https://www.eiee.org/">European Institute on Economics and the Environment</a>, working on uncertainty quantification and robust decision making.</p>
-                    <p>Work in progress, coming soon!.</p>
+                    <h1>Your Name</h1>
+                    <p><strong>Position/Title</strong></p>
+                    <p>Welcome! I'm a [your profession/field] passionate about [your interests]. I currently work at/study at [institution/company].</p>
+                    <p>My research/work focuses on [brief description of your main areas of interest]. I'm particularly interested in [specific topics].</p>
                     <div class="contact-links">
-                        <a href="mailto:jacopo.ghirri@cmcc.it">Email</a>
-                        <a href="https://github.com/JacopoGhirri" target="_blank">GitHub</a>
-                        <a href="https://www.linkedin.com/in/jacopoghirri" target="_blank">LinkedIn</a>
-                        <a href="https://scholar.google.com/citations?user=IvDbPpcAAAAJ&hl=en" target="_blank">Scholar</a>
-                        <a href="https://orcid.org/0000-0002-4181-5797" target="_blank">ORCiD</a>
+                        <a href="mailto:your.email@example.com">Email</a>
+                        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
                     </div>
                 </div>
             </div>
@@ -224,27 +338,19 @@
             <h2>Publications</h2>
             
             <div class="publication">
-                <h3>Variational inference for semiparametric Bayesian novelty detection in large datasets</h3>
-                <p class="authors">Luca Benedetti, Eric Boniardi, Leonardo Chiani, <strong>Jacopo Ghirri</strong>, Marta Mastropietro, Andrea Cappozzo, Francesco Denti</p>
-                <p class="venue">Advances in Data Analysis and Classification, 2024</p>
-                <!-- <p>Brief description of the paper and its contributions.</p> -->
-                <a href="https://link.springer.com/article/10.1007/s11634-023-00569-z">[PDF]</a>
+                <h3>Title of Your Paper</h3>
+                <p class="authors">Author 1, Author 2, <strong>Your Name</strong>, Author 3</p>
+                <p class="venue">Conference/Journal Name, Year</p>
+                <p>Brief description of the paper and its contributions.</p>
+                <a href="#">[PDF]</a> <a href="#">[Code]</a>
             </div>
 
-            <h2>Pre-prints</h2>
             <div class="publication">
-                <h3>Climate Policy under Fear of Model Misspecification</h3>
-                <p class="authors"><strong>Jacopo Ghirri</strong>, Massimo Marinacci, Massimo Tavoni</p>
-                <!--<p class="venue">Venue Name, Year</p>
-                <p>Brief description of this work.</p> -->
-                <a href="https://www.researchsquare.com/article/rs-6813235/v1">[PDF]</a>
-            </div>
-            
-            <h2>Working on</h2>
-            <div class="publication">
-                <h3>Short term CO2 emission forecasts in the EU.</h3>                
-                <p>A 55% reduction in CO2 emissions by 2030 is an ambitious goal, and disruptive trends are making it ever more challenging to forecast wether we are on track or not.</p>
-                <a href="https://www.researchsquare.com/article/rs-6813235/v1">[PDF]</a>
+                <h3>Another Publication Title</h3>
+                <p class="authors"><strong>Your Name</strong>, Co-author</p>
+                <p class="venue">Venue Name, Year</p>
+                <p>Brief description of this work.</p>
+                <a href="#">[PDF]</a>
             </div>
         </div>
 
@@ -253,27 +359,24 @@
             <h2>Projects</h2>
             
             <div class="project">
-                <h3>EUNICE</h3>
-                <p>Debiasing deep uncertainties in climate change strategies. </p>
-                <p><a href="https://www.eunice-erc.eu/">Learn more about the project</a>.</p>
-            </div>
-          
-            <div class="project">
-                <h3>GEOCEP</h3>
-                <p>Global Excellence in Modeling Climate and Energy Policies. </p>
-                <p><a href="https://geocep.cuni.cz/">Learn more about the project</a>.</p>
+                <h3>Project Name</h3>
+                <p>Description of your project, what it does, and what technologies you used.</p>
+                <p><a href="#">View on GitHub</a> | <a href="#">Live Demo</a></p>
             </div>
 
+            <div class="project">
+                <h3>Another Project</h3>
+                <p>Brief overview of another project you've worked on.</p>
+                <p><a href="#">View on GitHub</a></p>
+            </div>
         </div>
 
         <!-- CV Page -->
         <div id="cv" class="page">
             <h2>Curriculum Vitae</h2>
-
-            <p>COMING SOON!</p>
-            <<!--
+            
             <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Education</h3>
-            <p><strong>Mathematical Engineering - Statistical Learning</strong> - Politecnico di Milano (2022)<br>
+            <p><strong>Degree Name</strong> - Institution Name (Year)<br>
             Brief description or focus area</p>
 
             <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Experience</h3>
@@ -284,13 +387,11 @@
             <p>List of your technical skills, programming languages, tools, etc.</p>
 
             <p style="margin-top: 2rem;"><a href="#" style="color: #3498db;">Download Full CV (PDF)</a></p>
-
-            -->>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 Jacopo Ghirri. All rights reserved.</p>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
     </footer>
 
     <script>
@@ -308,6 +409,28 @@
                 
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
+        });
+
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Check for saved dark mode preference
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            darkModeToggle.textContent = '☀️ Light';
+        }
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                darkModeToggle.textContent = '☀️ Light';
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                darkModeToggle.textContent = '🌙 Dark';
+                localStorage.setItem('darkMode', 'disabled');
+            }
         });
     </script>
 </body>

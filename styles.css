@@ -310,16 +310,6 @@ body.dark-mode a:hover {
     text-decoration: underline;
 }
 
-/* Specific link styles for different sections */
-body.dark-mode .contact-links a {
-    background-color: #238636; /* Green background */
-    color: white; /* Ensure white text */
-}
-
-body.dark-mode .contact-links a:hover {
-    background-color: #2ea043; /* Slightly lighter green on hover */
-}
-
 body.dark-mode .publication a {
     color: #58a6ff;
 }

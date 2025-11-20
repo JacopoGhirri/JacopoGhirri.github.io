@@ -280,12 +280,15 @@ body.dark-mode .project {
     background-color: #0d1117;
     border-left-color: #58a6ff;
 }
+
 body.dark-mode .contact-links a {
-    color: #58a6ff;           /* GitHub-light-blue in dark mode */
+    background: none;     /* remove green box */
+    color: #58a6ff;       /* GitHub-light-blue */
 }
 
 body.dark-mode .contact-links a:hover {
-    color: #79c3fc;
+    color: #79c3fc;       /* lighter on hover */
+    background: none;     /* ensure no box appears on hover */
 }
 
 body.dark-mode footer {

@@ -5,17 +5,17 @@
    ======================================== */
 :root {
     /* Primary Brand Colors */
-    --primary-color: #3498db; /**/          /* Main brand color (blue) */
-    --primary-dark: #2980b9;            /* Darker shade for hovers */
+    --primary-color: #17a2b8;           /* Main brand color (aquamarina) */
+    --primary-dark: #138496;            /* Darker shade for hovers */
 
     /* Navigation */
-    --nav-bg: #008080;                  /* Navigation background */
+    --nav-bg: #008080;                  /* Navigation background (teal) */
     --nav-text: white;                  /* Navigation text color */
 
     /* Borders & Accents */
-    --border-color: #3498db;            /* Main border color */
+    --border-color: #17a2b8;            /* Main border color */
     --border-light: #eee;               /* Light borders */
-
+    
     /* Text Colors */
     --text-primary: #333;               /* Main text */
     --text-secondary: #555;             /* Secondary text */
@@ -24,12 +24,12 @@
     /* Backgrounds */
     --bg-body: #f5f5f5;                 /* Page background */
     --bg-card: white;                   /* Card/section background */
-    --bg-project: #f8f9fa;              /* Project card background */
+    --bg-project: #f0f9fa;              /* Project card background (light aqua tint) */
 
     /* Icons & Links */
-    --icon-color: #3498db;              /* Icon color */
-    --link-color: #3498db;              /* Link color */
-    --link-hover: #2980b9;              /* Link hover color */
+    --icon-color: #17a2b8;              /* Icon color */
+    --link-color: #17a2b8;              /* Link color */
+    --link-hover: #138496;              /* Link hover color */
 }
 
 /* Dark Mode Variables */

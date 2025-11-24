@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacopo Ghirri - Personal Site</title>
 
+    <!-- SEO Meta -->
+    <meta name="description" content="Jacopo Ghirri — researcher in climate policy, modelling, and uncertainty. Personal website with research, projects, and CV.">
+    <meta name="author" content="Jacopo Ghirri">
+    <link rel="canonical" href="https://jacopoghirri.github.io/">
+
+    <!-- OpenGraph -->
+    <meta property="og:title" content="Jacopo Ghirri">
+    <meta property="og:description" content="Researcher in climate policy, uncertainty, and modelling.">
+    <meta property="og:url" content="https://jacopoghirri.github.io/">
+    <meta property="og:type" content="website">
+
+    <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Jacopo Ghirri",
       "url": "https://jacopoghirri.github.io/",
+      "jobTitle": "Researcher",
       "sameAs": [
         "https://github.com/JacopoGhirri",
         "https://www.linkedin.com/in/jacopoghirri/",
@@ -18,10 +32,14 @@
     }
     </script>
 
-    <title>Jacopo Ghirri - Personal Site</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+
+    <!-- SEO requires one H1 on the page -->
+    <h1 style="display:none;">Jacopo Ghirri — Researcher</h1>
+
     <nav>
         <ul>
             <li><a href="#" data-page="home">Home</a></li>
@@ -35,6 +53,13 @@
     <div class="container">
         <div id="pageContent"></div>
     </div>
+
+    <!-- Optional footer (disabled) -->
+    <!--
+    <footer>
+        <p>&copy; 2025 Jacopo Ghirri. All rights reserved.</p>
+    </footer>
+    -->
 
     <script src="script.js"></script>
 </body>

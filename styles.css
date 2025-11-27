@@ -75,12 +75,13 @@ body {
 /* ========================================
    NAVIGATION
    ======================================== */
+/* Update the existing nav selector */
 nav {
     background-color: var(--nav-bg);
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 99;  /* Changed from 100 to 99 */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     display: flex;
     justify-content: space-between;
@@ -499,4 +500,22 @@ footer {
         left: 20px;
         transform: translateX(0);
     }
+}
+
+/* ========================================
+   PERSISTENT HEADER/BANNER
+   ======================================== */
+.site-header {
+    background-color: var(--bg-card);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-bottom: 3px solid var(--border-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.site-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
 }

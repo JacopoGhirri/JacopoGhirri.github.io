@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
 
-    // Function to load page content
+    // Loads HTML from /pages/*.html when navigating inside the site
     async function loadPage(pageId) {
         try {
-            const response = await fetch(`pages/${pageId}.html`);
+            const response = await fetch(`/pages/${pageId}.html`);
 
             if (!response.ok) {
                 throw new Error(`Could not load page: ${pageId}`);
@@ -21,20 +21,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Navigation event listeners
+    // SPA-like navigation for user clicks
     links.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
             const pageId = link.getAttribute('data-page');
-            loadPage(pageId);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            const href = link.getAttribute('href');
+
+            // Only intercept links that stay inside the site
+            if (href.startsWith('/')) {
+                e.preventDefault();
+                loadPage(pageId);
+
+                // Update browser URL without reload
+                history.pushState({ page: pageId }, "", href);
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         });
     });
 
-    // Initial page load (Home)
-    loadPage('home');
+    // Handle back/forward buttons
+    window.addEventListener('popstate', (event) => {
+        if (event.state && event.state.page) {
+            loadPage(event.state.page);
+        }
+    });
 
-    // Dark mode toggle logic
+    // Initial page load based on URL
+    const path = window.location.pathname.replace('/', '') || 'home';
+    loadPage(path);
+
+    // Dark mode toggle
     if (localStorage.getItem('darkMode') === 'enabled') {
         body.classList.add('dark-mode');
         darkModeToggle.textContent = '☀️ Light';

@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jacopo Ghirri - Personal Site</title>
+    <title>Jacopo Ghirri — Climate Policy & AI Researcher</title>
 
     <!-- SEO Meta -->
-    <meta name="description" content="Jacopo Ghirri — researcher in climate policy, modelling, and uncertainty. Personal website with research, projects, and CV.">
+    <meta name="description" content="Jacopo Ghirri — PhD Candidate in climate policy, modelling, AI for climate, and uncertainty. Personal website with research, projects, and CV.">
     <meta name="author" content="Jacopo Ghirri">
     <link rel="canonical" href="https://jacopoghirri.github.io/">
 
     <!-- OpenGraph -->
-    <meta property="og:title" content="Jacopo Ghirri">
-    <meta property="og:description" content="Researcher in climate policy, uncertainty, and modelling.">
+    <meta property="og:title" content="Jacopo Ghirri — Climate Policy & AI Researcher">
+    <meta property="og:description" content="PhD Candidate at Politecnico di Milano and RFF-CMCC, visiting researcher at MILA.">
     <meta property="og:url" content="https://jacopoghirri.github.io/">
-    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://jacopoghirri.github.io/images/PersonalPhoto.jpg">
+    <meta property="og:type" content="profile">
+    <meta property="profile:first_name" content="Jacopo">
+    <meta property="profile:last_name" content="Ghirri">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -22,12 +25,40 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Jacopo Ghirri",
+      "givenName": "Jacopo",
+      "familyName": "Ghirri",
+      "jobTitle": "PhD Candidate in Climate Policy",
+      "description": "PhD candidate at Politecnico di Milano and the RFF-CMCC European Institute on Economics and the Environment. My research focuses on quantifying uncertainty and designing robust climate mitigation policies. Visiting researcher at MILA working on integrating macroeconomic and generative models.",
       "url": "https://jacopoghirri.github.io/",
-      "jobTitle": "Researcher",
+      "image": "https://jacopoghirri.github.io/images/PersonalPhoto.jpg",
+      "email": "mailto:jacopo.ghirri@cmcc.it",
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "name": "Politecnico di Milano",
+          "url": "https://www.polimi.it/"
+        },
+        {
+          "@type": "Organization",
+          "name": "RFF-CMCC European Institute on Economics and the Environment",
+          "url": "https://www.eiee.org/"
+        },
+        {
+          "@type": "Organization",
+          "name": "MILA – Quebec AI Institute",
+          "url": "https://mila.quebec/en"
+        }
+      ],
+      "supervisor": {
+        "@type": "Person",
+        "name": "Massimo Tavoni",
+        "url": "https://scholar.google.com/citations?user=jtRH0iwAAAAJ"
+      },
       "sameAs": [
         "https://github.com/JacopoGhirri",
         "https://www.linkedin.com/in/jacopoghirri/",
-        "https://scholar.google.com/citations?user=IvDbPpcAAAAJ"
+        "https://scholar.google.com/citations?user=IvDbPpcAAAAJ",
+        "https://orcid.org/0000-0002-4181-5797"
       ]
     }
     </script>
@@ -37,35 +68,24 @@
 
 <body>
 
-    <!-- SEO requires one H1 on the page -->
-    <h1 style="display:none;">Jacopo Ghirri — Researcher</h1>
+<header class="site-header">
+    <h1>Jacopo Ghirri — Climate Policy & AI Researcher</h1>
+</header>
 
-    <!-- Persistent Banner -->
-    <header class="site-header">
-        <h1 class="site-title">Jacopo Ghirri</h1>
-    </header>
+<nav>
+    <ul>
+        <li><a href="/" data-page="home">Home</a></li>
+        <li><a href="/research" data-page="research">Research</a></li>
+        <li><a href="/projects" data-page="projects">Projects</a></li>
+        <li><a href="/cv" data-page="cv">CV</a></li>
+    </ul>
+    <button class="dark-mode-toggle" id="darkModeToggle">🌙 Dark</button>
+</nav>
 
-    <nav>
-        <ul>
-            <li><a href="#" data-page="home">Home</a></li>
-            <li><a href="#" data-page="research">Research</a></li>
-            <li><a href="#" data-page="projects">Projects</a></li>
-            <li><a href="#" data-page="cv">CV</a></li>
-        </ul>
-        <button class="dark-mode-toggle" id="darkModeToggle">🌙 Dark</button>
-    </nav>
+<div class="container">
+    <div id="pageContent"></div>
+</div>
 
-    <div class="container">
-        <div id="pageContent"></div>
-    </div>
-
-    <!-- Optional footer (disabled) -->
-    <!--
-    <footer>
-        <p>&copy; 2025 Jacopo Ghirri. All rights reserved.</p>
-    </footer>
-    -->
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

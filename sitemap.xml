@@ -4,12 +4,15 @@
     <loc>https://jacopoghirri.github.io/</loc>
   </url>
   <url>
-    <loc>https://jacopoghirri.github.io/research</loc>
+    <loc>https://jacopoghirri.github.io/pages/home.html</loc>
   </url>
   <url>
-    <loc>https://jacopoghirri.github.io/projects</loc>
+    <loc>https://jacopoghirri.github.io/pages/research.html</loc>
   </url>
   <url>
-    <loc>https://jacopoghirri.github.io/cv</loc>
+    <loc>https://jacopoghirri.github.io/pages/projects.html</loc>
+  </url>
+  <url>
+    <loc>https://jacopoghirri.github.io/pages/cv.html</loc>
   </url>
 </urlset>

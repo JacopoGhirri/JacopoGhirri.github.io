@@ -6,17 +6,17 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://jacopoghirri.github.io/research</loc>
+    <loc>https://jacopoghirri.github.io/research.html</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://jacopoghirri.github.io/projects</loc>
+    <loc>https://jacopoghirri.github.io/projects.html</loc>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://jacopoghirri.github.io/cv</loc>
+    <loc>https://jacopoghirri.github.io/cv.html</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>

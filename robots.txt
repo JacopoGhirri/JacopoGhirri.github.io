@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /pages/
 
 Sitemap: https://jacopoghirri.github.io/sitemap.xml

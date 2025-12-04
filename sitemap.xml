@@ -2,17 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jacopoghirri.github.io/</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://jacopoghirri.github.io/pages/home.html</loc>
+    <loc>https://jacopoghirri.github.io/research</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://jacopoghirri.github.io/pages/research.html</loc>
+    <loc>https://jacopoghirri.github.io/projects</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://jacopoghirri.github.io/pages/projects.html</loc>
-  </url>
-  <url>
-    <loc>https://jacopoghirri.github.io/pages/cv.html</loc>
+    <loc>https://jacopoghirri.github.io/cv</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
 </urlset>

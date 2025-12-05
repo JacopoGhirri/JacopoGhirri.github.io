@@ -519,3 +519,71 @@ footer {
     color: var(--primary-color);
     margin: 0;
 }
+
+/* =================================
+   Photo Gallery
+   =================================
+ */
+/* Add to styles.css */
+
+.gallery-wrapper {
+    position: relative;
+}
+
+.gallery-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem 0;
+    white-space: nowrap;
+    scroll-behavior: smooth; /* Smooth scrolling behavior */
+}
+
+/* Style for the navigation arrows */
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.gallery-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+.gallery-photo {
+    height: 200px;
+    width: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+    flex-shrink: 0; /* Ensures images don't stretch */
+}
+
+/* Optional: Style the scrollbar for webkit browsers (Chrome, Safari, etc.) */
+.gallery-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.gallery-container::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 4px;
+}

@@ -1,7 +1,7 @@
-/* styles.css */
+/* styles.css - Complete Stylesheet */
 
 /* ========================================
-   COLOR VARIABLES - CUSTOMIZE HERE
+   COLOR VARIABLES
    ======================================== */
 :root {
     /* Primary Brand Colors */
@@ -15,7 +15,7 @@
     /* Borders & Accents */
     --border-color: #17a2b8;            /* Main border color */
     --border-light: #eee;               /* Light borders */
-    
+
     /* Text Colors */
     --text-primary: #333;               /* Main text */
     --text-secondary: #555;             /* Secondary text */
@@ -73,15 +73,32 @@ body {
 }
 
 /* ========================================
+   HEADER
+   ======================================== */
+.site-header {
+    background-color: var(--bg-card);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    border-bottom: 3px solid var(--border-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.site-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+/* ========================================
    NAVIGATION
    ======================================== */
-/* Update the existing nav selector */
 nav {
     background-color: var(--nav-bg);
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
-    z-index: 99;  /* Changed from 100 to 99 */
+    z-index: 99;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     display: flex;
     justify-content: space-between;
@@ -150,7 +167,41 @@ nav a:hover {
 }
 
 /* ========================================
-   PROFILE SECTION
+   TYPOGRAPHY
+   ======================================== */
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* ========================================
+   LINKS & ICONS
+   ======================================== */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+/* ========================================
+   PROFILE SECTION (HOME PAGE)
    ======================================== */
 .profile-section {
     display: flex;
@@ -178,29 +229,6 @@ nav a:hover {
     color: var(--text-secondary);
 }
 
-/* ========================================
-   TYPOGRAPHY
-   ======================================== */
-h1 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-h2 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--border-color);
-}
-
-h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-/* ========================================
-   LINKS & ICONS
-   ======================================== */
 .contact-links {
     display: flex;
     gap: 1rem;
@@ -223,19 +251,8 @@ h3 {
     transform: scale(1.15);
 }
 
-a {
-    color: var(--link-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: var(--link-hover);
-    text-decoration: underline;
-}
-
 /* ========================================
-   PUBLICATIONS
+   PUBLICATIONS (RESEARCH PAGE)
    ======================================== */
 .publication {
     margin-bottom: 2rem;
@@ -269,7 +286,7 @@ a:hover {
 }
 
 /* ========================================
-   PROJECTS
+   PROJECTS (PROJECTS PAGE)
    ======================================== */
 .project {
     margin-bottom: 2rem;
@@ -298,6 +315,175 @@ a:hover {
 }
 
 /* ========================================
+   CV PAGE - MAIN LAYOUT
+   ======================================== */
+.cv-section {
+    margin-bottom: 3rem;
+}
+
+.cv-position-group {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding-left: 180px;
+}
+
+.cv-date-badge {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    width: 160px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.cv-date-badge.current {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    border-color: var(--primary-color);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 2px 6px rgba(23, 162, 184, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 12px rgba(23, 162, 184, 0.5);
+    }
+}
+
+.cv-positions-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cv-position {
+    background: var(--bg-project);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--border-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.cv-position:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 16px rgba(23, 162, 184, 0.15);
+}
+
+.cv-position.primary {
+    border-left-width: 4px;
+}
+
+.cv-position.secondary {
+    border-left-width: 4px;
+    border-left-style: dashed;
+    background: linear-gradient(to right, var(--bg-project) 0%, var(--bg-card) 100%);
+}
+
+.cv-position-header {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cv-icon {
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 10px rgba(23, 162, 184, 0.3);
+}
+
+.cv-position-title {
+    flex: 1;
+}
+
+.cv-position-title h3 {
+    color: var(--text-primary);
+    font-size: 1.15rem;
+    margin-bottom: 0.3rem;
+}
+
+.cv-institution {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.cv-location {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-bottom: 0.2rem;
+}
+
+.cv-date-inline {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.2rem;
+}
+
+.cv-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding-left: 60px;
+}
+
+.cv-description strong {
+    color: var(--primary-color);
+}
+
+/* CV Download Button */
+.cv-download {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(23, 162, 184, 0.3);
+}
+
+.cv-download:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(23, 162, 184, 0.4);
+    text-decoration: none;
+    color: white;
+}
+
+.cv-download i {
+    margin-right: 0.5rem;
+}
+
+/* ========================================
    FOOTER
    ======================================== */
 footer {
@@ -311,6 +497,7 @@ footer {
    RESPONSIVE DESIGN
    ======================================== */
 @media (max-width: 768px) {
+    /* Navigation */
     nav {
         flex-direction: column;
         gap: 1rem;
@@ -321,6 +508,7 @@ footer {
         flex-wrap: wrap;
     }
 
+    /* Layout */
     .container {
         padding: 1rem;
     }
@@ -329,6 +517,7 @@ footer {
         padding: 1.5rem;
     }
 
+    /* Profile Section */
     .profile-section {
         flex-direction: column;
         align-items: center;
@@ -343,179 +532,52 @@ footer {
     .bio {
         min-width: 100%;
     }
-}
 
-/* ========================================
-   CV PAGE - DOWNLOAD BUTTON
-   ======================================== */
-.cv-download {
-    display: inline-block;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
-}
-
-.cv-download:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(23, 162, 184, 0.3);
-    text-decoration: none;
-    color: white;
-}
-
-.cv-download i {
-    margin-right: 0.5rem;
-}
-
-/* ========================================
-   CV PAGE - TIMELINE
-   ======================================== */
-.timeline {
-    position: relative;
-    padding: 2rem 0;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(to bottom, var(--primary-color), var(--primary-dark));
-    border-radius: 2px;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 3rem;
-    display: flex;
-    align-items: center;
-}
-
-.timeline-item:nth-child(odd) {
-    flex-direction: row;
-}
-
-.timeline-item:nth-child(even) {
-    flex-direction: row-reverse;
-}
-
-.timeline-content {
-    width: calc(50% - 40px);
-    padding: 1.5rem;
-    background: var(--bg-project);
-    border-radius: 8px;
-    border: 2px solid var(--border-color);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: all 0.3s;
-}
-
-.timeline-content:hover {
-    transform: scale(1.03);
-    box-shadow: 0 5px 20px rgba(23, 162, 184, 0.2);
-}
-
-.timeline-icon {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 50px;
-    background-color: var(--primary-color);
-    border: 4px solid var(--bg-card);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.2rem;
-    z-index: 10;
-    box-shadow: 0 4px 12px rgba(23, 162, 184, 0.3);
-}
-
-.timeline-date {
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.timeline-date i {
-    font-size: 0.9rem;
-}
-
-.timeline-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 0.3rem;
-}
-
-.timeline-subtitle {
-    font-weight: 600;
-    color: var(--primary-dark);
-    margin-bottom: 0.5rem;
-}
-
-.timeline-location {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-}
-
-.timeline-description {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-top: 0.5rem;
-}
-
-/* Timeline Responsive */
-@media (max-width: 768px) {
-    .timeline::before {
-        left: 20px;
+    /* CV Page */
+    .cv-position-group {
+        padding-left: 0;
+        padding-top: 70px;
     }
 
-    .timeline-item {
-        flex-direction: column !important;
-        align-items: flex-start;
-        padding-left: 60px;
-    }
-
-    .timeline-content {
+    .cv-date-badge {
+        position: static;
         width: 100%;
+        margin-bottom: 1rem;
+        justify-content: center;
     }
 
-    .timeline-icon {
-        left: 20px;
-        transform: translateX(0);
+    .cv-description {
+        padding-left: 0;
+    }
+
+    .cv-position-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .cv-icon {
+        margin-bottom: 0.5rem;
     }
 }
 
 /* ========================================
-   PERSISTENT HEADER/BANNER
+   DARK MODE SPECIFIC ADJUSTMENTS
    ======================================== */
-.site-header {
-    background-color: var(--bg-card);
-    padding: 1.5rem 2rem;
-    text-align: center;
-    border-bottom: 3px solid var(--border-color);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+body.dark-mode .cv-date-badge {
+    background: var(--bg-card);
+    border-color: var(--border-color);
 }
 
-.site-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin: 0;
+body.dark-mode .cv-date-badge.current {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    border-color: var(--primary-color);
+}
+
+body.dark-mode .cv-position {
+    background: var(--bg-project);
+}
+
+body.dark-mode .cv-position.secondary {
+    background: linear-gradient(to right, var(--bg-project) 0%, var(--bg-card) 100%);
 }

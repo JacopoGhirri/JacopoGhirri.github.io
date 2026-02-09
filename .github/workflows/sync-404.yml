@@ -1,0 +1,13 @@
+name: Sync 404
+on:
+  push:
+    paths: [index.html]
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cp index.html 404.html
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "[auto] sync 404.html with index.html"

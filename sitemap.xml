@@ -5,19 +5,4 @@
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
-  <url>
-    <loc>https://jacopoghirri.github.io/research</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://jacopoghirri.github.io/projects</loc>
-    <priority>0.8</priority>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://jacopoghirri.github.io/cv</loc>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
 </urlset>

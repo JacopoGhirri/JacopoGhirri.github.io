@@ -15,9 +15,122 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const content = await response.text();
             pageContent.innerHTML = content;
+
+            // If the CV page was loaded, render the timeline from JSON
+            if (pageId === 'cv') {
+                renderCV();
+            }
         } catch (error) {
             console.error('Error loading page:', error);
             pageContent.innerHTML = `<p>Error loading content: ${error.message}</p>`;
+        }
+    }
+
+    // CV rendering logic
+    async function renderCV() {
+        try {
+            const resp = await fetch('/data/cv.json');
+            if (!resp.ok) throw new Error('Could not load CV data');
+            const data = await resp.json();
+
+            function formatDate(dateStr) {
+                if (!dateStr) return 'Present';
+                const [y, m] = dateStr.split('-');
+                const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+                return months[parseInt(m, 10) - 1] + ' ' + y;
+            }
+
+            function parseDate(dateStr) {
+                if (!dateStr) return new Date(9999, 0);
+                const [y, m] = dateStr.split('-');
+                return new Date(parseInt(y), parseInt(m) - 1);
+            }
+
+            function overlaps(a, b) {
+                const aStart = parseDate(a.start);
+                const aEnd = a.end ? parseDate(a.end) : new Date();
+                const bStart = parseDate(b.start);
+                const bEnd = b.end ? parseDate(b.end) : new Date();
+                return aStart <= bEnd && bStart <= aEnd;
+            }
+
+            function buildTimeline(entries) {
+                const sorted = [...entries].sort((a, b) => {
+                    const aOngoing = !a.end;
+                    const bOngoing = !b.end;
+                    if (aOngoing !== bOngoing) return aOngoing ? -1 : 1;
+                    return parseDate(b.start) - parseDate(a.start);
+                });
+
+                const groups = [];
+                for (const entry of sorted) {
+                    const lastGroup = groups[groups.length - 1];
+                    if (lastGroup) {
+                        const primary = lastGroup[0];
+                        if (!primary.end && overlaps(primary, entry) && entry.end) {
+                            lastGroup.push(entry);
+                            continue;
+                        }
+                    }
+                    groups.push([entry]);
+                }
+                return groups;
+            }
+
+            function renderSection(containerId, title, entries) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                const groups = buildTimeline(entries);
+
+                let html = '<h2>' + title + '</h2>';
+                html += '<div class="timeline">';
+
+                groups.forEach(function (group) {
+                    const primary = group[0];
+                    const isCurrent = !primary.end;
+
+                    html += '<div class="timeline-item">';
+                    html += '<div class="timeline-icon"></div>';
+                    html += '<div class="timeline-content">';
+
+                    html += '<div class="timeline-date' + (isCurrent ? ' current' : '') + '">';
+                    html += formatDate(primary.start) + ' – ' + formatDate(primary.end);
+                    html += '</div>';
+                    html += '<div class="timeline-position">';
+                    html += '<div class="timeline-title">' + primary.title + '</div>';
+                    html += '<div class="timeline-subtitle">' + primary.institution + '</div>';
+                    html += '<div class="timeline-location">' + primary.location + '</div>';
+                    if (primary.description) {
+                        html += '<div class="timeline-description">' + primary.description + '</div>';
+                    }
+                    html += '</div>';
+
+                    for (var i = 1; i < group.length; i++) {
+                        var c = group[i];
+                        html += '<div class="timeline-position concurrent">';
+                        html += '<div class="concurrent-badge">Concurrent</div>';
+                        html += '<div class="timeline-date-inline">' + formatDate(c.start) + ' – ' + formatDate(c.end) + '</div>';
+                        html += '<div class="timeline-title">' + c.title + '</div>';
+                        html += '<div class="timeline-subtitle">' + c.institution + '</div>';
+                        html += '<div class="timeline-location">' + c.location + '</div>';
+                        if (c.description) {
+                            html += '<div class="timeline-description">' + c.description + '</div>';
+                        }
+                        html += '</div>';
+                    }
+
+                    html += '</div></div>';
+                });
+
+                html += '</div>';
+                container.innerHTML = html;
+            }
+
+            renderSection('cv-experience', 'Work Experience', data.experience);
+            renderSection('cv-education', 'Education', data.education);
+
+        } catch (error) {
+            console.error('Error rendering CV:', error);
         }
     }
 

@@ -1,0 +1,54 @@
+{
+  "experience": [
+    {
+      "title": "Affiliated Researcher",
+      "institution": "RFF-CMCC European Institute on Economics and the Environment",
+      "location": "Milan, Italy",
+      "start": "2023-06",
+      "end": null,
+      "description": "Conducting research on uncertainty quantification and robust decision making in climate change mitigation policy, and sustainable development pathways."
+    },
+    {
+      "title": "Visiting Researcher",
+      "institution": "MILA – Quebec AI Institute",
+      "location": "Montreal, Canada",
+      "start": "2025-01",
+      "end": "2026-02",
+      "description": "Collaborating with Prof. Alex Hernandez-Garcia to bridge macroeconomic climate models and generative AI using GFlowNets for climate policy exploration."
+    },
+    {
+      "title": "Enterprise Architect Analyst",
+      "institution": "Accenture",
+      "location": "Milan, Italy",
+      "start": "2023-01",
+      "end": "2023-05",
+      "description": null
+    }
+  ],
+  "education": [
+    {
+      "title": "Ph.D. Science, Technology and Policy for Sustainable Change",
+      "institution": "Politecnico di Milano",
+      "location": "Milan, Italy",
+      "start": "2023-06",
+      "end": null,
+      "description": "<strong>Thesis:</strong> Evaluating Uncertainties in Climate Mitigation Scenarios<br><strong>Supervisor:</strong> Prof. Massimo Tavoni"
+    },
+    {
+      "title": "M.Sc. Mathematical Engineering - Statistical Learning",
+      "institution": "Politecnico di Milano",
+      "location": "Milan, Italy",
+      "start": "2020-09",
+      "end": "2022-12",
+      "description": "<strong>Graduated cum Laude</strong><br><strong>Thesis:</strong> An evaluation of researchers' migrations in Europe using digital trace data<br><strong>Supervisor:</strong> Prof. Simone Vantini"
+    },
+    {
+      "title": "B.Sc. Mathematical Engineering",
+      "institution": "Politecnico di Milano",
+      "location": "Milan, Italy",
+      "start": "2017-09",
+      "end": "2020-07",
+      "description": null
+    }
+  ]
+}

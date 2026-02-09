@@ -2,155 +2,112 @@
     <h2>Curriculum Vitae</h2>
     <p style="color: var(--text-secondary); margin-bottom: 1rem;">PhD Researcher in Climate Policy & AI</p>
     <a href="/cv.pdf" class="cv-download" target="_blank">
-        <i class="fas fa-download"></i> Download Full CV (PDF)
+        Download Full CV (PDF)
     </a>
 </div>
 
-<!-- Work Experience Timeline -->
-<h2><i class="fas fa-briefcase"></i> Work Experience</h2>
-<div class="timeline">
-    <!-- Current Positions Group -->
-    <div class="timeline-item">
-        <div class="timeline-icon">
-            <i class="fas fa-flask"></i>
-        </div>
-        <div class="timeline-content">
-            <div class="timeline-date current">
-                <i class="far fa-calendar"></i>
-                June 2023 - Present
-            </div>
+<div id="cv-experience"></div>
+<div id="cv-education"></div>
 
-            <!-- Primary Position -->
-            <div class="timeline-position">
-                <div class="timeline-title">Affiliated Researcher</div>
-                <div class="timeline-subtitle">RFF-CMCC European Institute on Economics and the Environment</div>
-                <div class="timeline-location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Milan, Italy
-                </div>
-                <div class="timeline-description">
-                    Conducting research on uncertainty quantification and robust decision making in climate change mitigation policy, and sustainable development pathways.
-                </div>
-            </div>
+<script>
+(async function () {
+    const resp = await fetch('/data/cv.json');
+    const data = await resp.json();
 
-            <!-- Concurrent Visiting Position -->
-            <div class="timeline-position concurrent">
-                <div class="concurrent-badge">
-                    <i class="fas fa-layer-group"></i>
-                    Concurrent
-                </div>
-                <div class="timeline-date-inline">
-                    <i class="far fa-calendar"></i>
-                    January 2025 - February 2026
-                </div>
-                <div class="timeline-title">Visiting Researcher</div>
-                <div class="timeline-subtitle">MILA – Quebec AI Institute</div>
-                <div class="timeline-location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Montreal, Canada
-                </div>
-                <div class="timeline-description">
-                    Collaborating with Prof. Alex Hernandez-Garcia to bridge macroeconomic climate models and generative AI using GFlowNets for climate policy exploration.
-                </div>
-            </div>
-        </div>
-    </div>
+    function formatDate(dateStr) {
+        if (!dateStr) return 'Present';
+        const [y, m] = dateStr.split('-');
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        return `${months[parseInt(m, 10) - 1]} ${y}`;
+    }
 
-    <!-- Previous Position -->
-    <div class="timeline-item">
-        <div class="timeline-icon">
-            <i class="fas fa-laptop-code"></i>
-        </div>
-        <div class="timeline-content">
-            <div class="timeline-date">
-                <i class="far fa-calendar"></i>
-                Jan 2023 - May 2023
-            </div>
-            <div class="timeline-position">
-                <div class="timeline-title">Enterprise Architect Analyst</div>
-                <div class="timeline-subtitle">Accenture</div>
-                <div class="timeline-location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Milan, Italy
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    function parseDate(dateStr) {
+        if (!dateStr) return new Date(9999, 0);
+        const [y, m] = dateStr.split('-');
+        return new Date(parseInt(y), parseInt(m) - 1);
+    }
 
+    function overlaps(a, b) {
+        const aStart = parseDate(a.start);
+        const aEnd = a.end ? parseDate(a.end) : new Date();
+        const bStart = parseDate(b.start);
+        const bEnd = b.end ? parseDate(b.end) : new Date();
+        return aStart <= bEnd && bStart <= aEnd;
+    }
 
-<!-- Education Timeline -->
-<h2><i class="fas fa-graduation-cap"></i> Education</h2>
-<div class="timeline">
-    <!-- PhD -->
-    <div class="timeline-item">
-        <div class="timeline-icon">
-            <i class="fas fa-user-graduate"></i>
-        </div>
-        <div class="timeline-content">
-            <div class="timeline-date current">
-                <i class="far fa-calendar"></i>
-                June 2023 - Present
-            </div>
-            <div class="timeline-position">
-                <div class="timeline-title">Ph.D. Science, Technology and Policy for Sustainable Change</div>
-                <div class="timeline-subtitle">Politecnico di Milano</div>
-                <div class="timeline-location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Milan, Italy
-                </div>
-                <div class="timeline-description">
-                    <strong>Thesis:</strong> Evaluating Uncertainties in Climate Mitigation Scenarios<br>
-                    <strong>Supervisor:</strong> Prof. Massimo Tavoni
-                </div>
-            </div>
-        </div>
-    </div>
+    function buildTimeline(entries) {
+        const sorted = [...entries].sort((a, b) => {
+            const aOngoing = !a.end;
+            const bOngoing = !b.end;
+            if (aOngoing !== bOngoing) return aOngoing ? -1 : 1;
+            return parseDate(b.start) - parseDate(a.start);
+        });
 
-    <!-- Master's -->
-    <div class="timeline-item">
-        <div class="timeline-icon">
-            <i class="fas fa-brain"></i>
-        </div>
-        <div class="timeline-content">
-            <div class="timeline-date">
-                <i class="far fa-calendar"></i>
-                Sept 2020 - Dec 2022
-            </div>
-            <div class="timeline-position">
-                <div class="timeline-title">M.Sc. Mathematical Engineering - Statistical Learning</div>
-                <div class="timeline-subtitle">Politecnico di Milano</div>
-                <div class="timeline-location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Milan, Italy
-                </div>
-                <div class="timeline-description">
-                    <strong>Graduated cum Laude</strong><br>
-                    <strong>Thesis:</strong> An evaluation of researchers' migrations in Europe using digital trace data<br>
-                    <strong>Supervisor:</strong> Prof. Simone Vantini
-                </div>
-            </div>
-        </div>
-    </div>
+        const groups = [];
+        for (const entry of sorted) {
+            const lastGroup = groups[groups.length - 1];
+            if (lastGroup) {
+                const primary = lastGroup[0];
+                if (!primary.end && overlaps(primary, entry) && entry.end) {
+                    lastGroup.push(entry);
+                    continue;
+                }
+            }
+            groups.push([entry]);
+        }
 
-    <!-- Bachelor's -->
-    <div class="timeline-item">
-        <div class="timeline-icon">
-            <i class="fas fa-calculator"></i>
-        </div>
-        <div class="timeline-content">
-            <div class="timeline-date">
-                <i class="far fa-calendar"></i>
-                Sept 2017 - July 2020
-            </div>
-            <div class="timeline-position">
-                <div class="timeline-title">B.Sc. Mathematical Engineering</div>
-                <div class="timeline-subtitle">Politecnico di Milano</div>
-                <div class="timeline-location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Milan, Italy
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+        return groups;
+    }
+
+    function renderSection(containerId, title, entries) {
+        const container = document.getElementById(containerId);
+        const groups = buildTimeline(entries);
+
+        let html = `<h2>${title}</h2>`;
+        html += '<div class="timeline">';
+
+        groups.forEach((group) => {
+            const primary = group[0];
+            const isCurrent = !primary.end;
+
+            html += '<div class="timeline-item">';
+            html += '<div class="timeline-icon"></div>';
+            html += '<div class="timeline-content">';
+
+            html += `<div class="timeline-date${isCurrent ? ' current' : ''}">`;
+            html += `${formatDate(primary.start)} – ${formatDate(primary.end)}`;
+            html += '</div>';
+            html += '<div class="timeline-position">';
+            html += `<div class="timeline-title">${primary.title}</div>`;
+            html += `<div class="timeline-subtitle">${primary.institution}</div>`;
+            html += `<div class="timeline-location">${primary.location}</div>`;
+            if (primary.description) {
+                html += `<div class="timeline-description">${primary.description}</div>`;
+            }
+            html += '</div>';
+
+            for (let i = 1; i < group.length; i++) {
+                const c = group[i];
+                html += '<div class="timeline-position concurrent">';
+                html += '<div class="concurrent-badge">Concurrent</div>';
+                html += `<div class="timeline-date-inline">${formatDate(c.start)} – ${formatDate(c.end)}</div>`;
+                html += `<div class="timeline-title">${c.title}</div>`;
+                html += `<div class="timeline-subtitle">${c.institution}</div>`;
+                html += `<div class="timeline-location">${c.location}</div>`;
+                if (c.description) {
+                    html += `<div class="timeline-description">${c.description}</div>`;
+                }
+                html += '</div>';
+            }
+
+            html += '</div></div>';
+        });
+
+        html += '</div>';
+        container.innerHTML = html;
+    }
+
+    renderSection('cv-experience', 'Work Experience', data.experience);
+    renderSection('cv-education', 'Education', data.education);
+})();
+</script>

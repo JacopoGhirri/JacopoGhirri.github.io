@@ -126,8 +126,50 @@ document.addEventListener('DOMContentLoaded', () => {
                 container.innerHTML = html;
             }
 
-            renderSection('cv-experience', 'Work Experience', data.experience);
+            function renderSkills(containerId, skills) {
+                const container = document.getElementById(containerId);
+                if (!container || !skills) return;
+
+                var html = '<h2>Skills & Tools</h2>';
+                html += '<div class="skills-grid">';
+
+                if (skills.languages) {
+                    html += '<div class="skills-category">';
+                    html += '<h3>Languages & Frameworks</h3>';
+                    html += '<div class="skills-tags">';
+                    skills.languages.forEach(function (s) {
+                        html += '<span class="skill-tag">' + s + '</span>';
+                    });
+                    html += '</div></div>';
+                }
+
+                if (skills.methods) {
+                    html += '<div class="skills-category">';
+                    html += '<h3>Methods</h3>';
+                    html += '<div class="skills-tags">';
+                    skills.methods.forEach(function (s) {
+                        html += '<span class="skill-tag">' + s + '</span>';
+                    });
+                    html += '</div></div>';
+                }
+
+                if (skills.tools) {
+                    html += '<div class="skills-category">';
+                    html += '<h3>Tools</h3>';
+                    html += '<div class="skills-tags">';
+                    skills.tools.forEach(function (s) {
+                        html += '<span class="skill-tag">' + s + '</span>';
+                    });
+                    html += '</div></div>';
+                }
+
+                html += '</div>';
+                container.innerHTML = html;
+            }
+
+            renderSection('cv-experience', 'Experience', data.experience);
             renderSection('cv-education', 'Education', data.education);
+            renderSkills('cv-skills', data.skills);
 
         } catch (error) {
             console.error('Error rendering CV:', error);
@@ -140,14 +182,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const pageId = link.getAttribute('data-page');
             const href = link.getAttribute('href');
 
-            // Only intercept links that stay inside the site
             if (href.startsWith('/')) {
                 e.preventDefault();
                 loadPage(pageId);
-
-                // Update browser URL without reload
                 history.pushState({ page: pageId }, "", href);
-
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });

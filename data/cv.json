@@ -6,7 +6,7 @@
       "location": "Milan, Italy",
       "start": "2023-06",
       "end": null,
-      "description": "Conducting research on uncertainty quantification and robust decision making in climate change mitigation policy, and sustainable development pathways."
+      "description": "Building probabilistic models and deep learning pipelines for forecasting and uncertainty quantification. Delivering analysis that directly informs climate mitigation policy."
     },
     {
       "title": "Visiting Researcher",
@@ -14,7 +14,7 @@
       "location": "Montreal, Canada",
       "start": "2025-01",
       "end": "2026-02",
-      "description": "Collaborating with Prof. Alex Hernandez-Garcia to bridge macroeconomic climate models and generative AI using GFlowNets for climate policy exploration."
+      "description": "Developed generative models (GFlowNets) for diverse solution sampling over large combinatorial spaces under constraints. Python, PyTorch."
     },
     {
       "title": "Enterprise Architect Analyst",
@@ -22,7 +22,7 @@
       "location": "Milan, Italy",
       "start": "2023-01",
       "end": "2023-05",
-      "description": null
+      "description": "Enterprise architecture and systems design in a consulting environment."
     }
   ],
   "education": [
@@ -32,15 +32,15 @@
       "location": "Milan, Italy",
       "start": "2023-06",
       "end": null,
-      "description": "<strong>Thesis:</strong> Evaluating Uncertainties in Climate Mitigation Scenarios<br><strong>Supervisor:</strong> Prof. Massimo Tavoni"
+      "description": "<strong>Thesis:</strong> Evaluating Uncertainties in Climate Mitigation Scenarios<br><strong>Focus:</strong> Bayesian inference, robust optimization, deep learning for time series, generative models"
     },
     {
-      "title": "M.Sc. Mathematical Engineering - Statistical Learning",
+      "title": "M.Sc. Mathematical Engineering – Statistical Learning",
       "institution": "Politecnico di Milano",
       "location": "Milan, Italy",
       "start": "2020-09",
       "end": "2022-12",
-      "description": "<strong>Graduated cum Laude</strong><br><strong>Thesis:</strong> An evaluation of researchers' migrations in Europe using digital trace data<br><strong>Supervisor:</strong> Prof. Simone Vantini"
+      "description": "<strong>Graduated cum Laude</strong><br><strong>Thesis:</strong> An evaluation of researchers' migrations in Europe using digital trace data"
     },
     {
       "title": "B.Sc. Mathematical Engineering",
@@ -50,5 +50,10 @@
       "end": "2020-07",
       "description": null
     }
-  ]
+  ],
+  "skills": {
+    "languages": ["Python (PyTorch, NumPy, Pandas, scikit-learn)", "R (tidyverse, Stan)", "SQL", "LaTeX"],
+    "methods": ["Bayesian inference & probabilistic modeling", "Deep learning (forecasting, generative)", "Time series analysis & econometrics", "Uncertainty quantification", "Robust optimization & decision theory"],
+    "tools": ["Git", "Linux", "HPC clusters", "Jupyter"]
+  }
 }

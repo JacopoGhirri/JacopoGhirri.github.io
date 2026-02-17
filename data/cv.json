@@ -6,15 +6,15 @@
       "location": "Milan, Italy",
       "start": "2023-06",
       "end": null,
-      "description": "Conducting research on uncertainty quantification and robust decision making in climate change mitigation policy, and sustainable development pathways."
+      "description": "Conducting research on uncertainty quantification, robust decision-making, and deep learning forecasting for climate change mitigation policy."
     },
     {
       "title": "Visiting Researcher",
       "institution": "MILA – Quebec AI Institute",
       "location": "Montreal, Canada",
-      "start": "2025-01",
+      "start": "2025-09",
       "end": "2026-02",
-      "description": "Collaborating with Prof. Alex Hernandez-Garcia to bridge macroeconomic climate models and generative AI using GFlowNets for climate policy exploration."
+      "description": "Collaborated with Prof. Alex Hernandez-Garcia on bridging macroeconomic climate models and generative AI (GFlowNets) for policy scenario exploration."
     },
     {
       "title": "Enterprise Architect Analyst",
@@ -22,7 +22,7 @@
       "location": "Milan, Italy",
       "start": "2023-01",
       "end": "2023-05",
-      "description": null
+      "description": "Enterprise architecture assessments and data-flow mapping for large-scale IT transformation projects."
     }
   ],
   "education": [
@@ -31,8 +31,8 @@
       "institution": "Politecnico di Milano",
       "location": "Milan, Italy",
       "start": "2023-06",
-      "end": null,
-      "description": "<strong>Thesis:</strong> Evaluating Uncertainties in Climate Mitigation Scenarios<br><strong>Supervisor:</strong> Prof. Massimo Tavoni"
+      "end": "2025-06",
+      "description": "<strong>Thesis:</strong> Evaluating Uncertainties in Climate Mitigation Scenarios<br><strong>Supervisor:</strong> Prof. Massimo Tavoni<br>Submission expected June 2025; defense forthcoming."
     },
     {
       "title": "M.Sc. Mathematical Engineering - Statistical Learning",

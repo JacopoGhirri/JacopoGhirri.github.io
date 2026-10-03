@@ -1,7 +1,8 @@
 name: Sync 404
 on:
   push:
-    paths: [index.html]
+    paths: [index.html, .github/workflows/sync-404.yml]
+  workflow_dispatch:
 permissions:
   contents: write
 jobs:

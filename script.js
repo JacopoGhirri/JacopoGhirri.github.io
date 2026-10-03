@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // CV rendering logic
     async function renderCV() {
         try {
-            const resp = await fetch('/data/cv.json');
+            const resp = await fetch('/data/cv.json', { cache: 'no-cache' });
             if (!resp.ok) throw new Error('Could not load CV data');
             const data = await resp.json();
 

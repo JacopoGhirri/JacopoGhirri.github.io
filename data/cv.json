@@ -1,20 +1,28 @@
 {
   "experience": [
     {
-      "title": "Affiliated Researcher",
-      "institution": "RFF-CMCC European Institute on Economics and the Environment",
+      "title": "ML/AI Research and Development",
+      "institution": "Kline",
       "location": "Milan, Italy",
-      "start": "2023-06",
+      "start": "2026-07",
       "end": null,
-      "description": "Conducting research on uncertainty quantification and robust decision making in climate change mitigation policy, and sustainable development pathways."
+      "description": "Applying machine learning and AI to risk management, forecasting and optimization problems in the financial sector, and translating quantitative research into methodologies for fintech consulting clients."
     },
     {
       "title": "Visiting Researcher",
-      "institution": "MILA – Quebec AI Institute",
+      "institution": "Mila – Quebec AI Institute",
       "location": "Montreal, Canada",
-      "start": "2025-01",
+      "start": "2025-09",
       "end": "2026-02",
-      "description": "Collaborating with Prof. Alex Hernandez-Garcia to bridge macroeconomic climate models and generative AI using GFlowNets for climate policy exploration."
+      "description": "Contributed to a Python/PyTorch repository on generative flow networks (GFlowNets) and adapted it to explore high-dimensional policy spaces in macroeconomic climate simulators, in collaboration with Prof. Alex Hernandez-Garcia."
+    },
+    {
+      "title": "Affiliated Researcher",
+      "institution": "RFF-CMCC European Institute on Economics and the Environment (EIEE)",
+      "location": "Milan, Italy",
+      "start": "2023-06",
+      "end": "2026-06",
+      "description": "Built a deep learning pipeline for short-term EU CO2 emission forecasting across 27 countries and multiple sectors; developed a robust decision-making framework under model uncertainty; built function-on-scalar regression emulators of integrated assessment models."
     },
     {
       "title": "Enterprise Architect Analyst",
@@ -22,7 +30,7 @@
       "location": "Milan, Italy",
       "start": "2023-01",
       "end": "2023-05",
-      "description": null
+      "description": "Conducted enterprise architecture assessments and data-flow mapping for large-scale IT transformation projects."
     }
   ],
   "education": [
@@ -31,8 +39,8 @@
       "institution": "Politecnico di Milano",
       "location": "Milan, Italy",
       "start": "2023-06",
-      "end": null,
-      "description": "<strong>Thesis:</strong> Evaluating Uncertainties in Climate Mitigation Scenarios<br><strong>Supervisor:</strong> Prof. Massimo Tavoni"
+      "end": "2026-09",
+      "description": "<strong>Thesis:</strong> Evaluating Uncertainties and Robust Strategies in Climate Mitigation Scenarios<br><strong>Supervisor:</strong> Prof. Massimo Tavoni<br><strong>Projects:</strong> EUNICE (ERC), GEOCEP"
     },
     {
       "title": "M.Sc. Mathematical Engineering - Statistical Learning",

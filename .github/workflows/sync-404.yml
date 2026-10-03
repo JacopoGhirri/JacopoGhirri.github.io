@@ -2,6 +2,8 @@ name: Sync 404
 on:
   push:
     paths: [index.html]
+permissions:
+  contents: write
 jobs:
   sync:
     runs-on: ubuntu-latest

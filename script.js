@@ -40,6 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 return months[parseInt(m, 10) - 1] + ' ' + y;
             }
 
+            function institutionHtml(entry) {
+                if (!entry.url) return entry.institution;
+                return '<a href="' + entry.url + '" target="_blank" rel="noopener">' + entry.institution + '</a>';
+            }
+
             function parseDate(dateStr) {
                 if (!dateStr) return new Date(9999, 0);
                 const [y, m] = dateStr.split('-');
@@ -98,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     html += '</div>';
                     html += '<div class="timeline-position">';
                     html += '<div class="timeline-title">' + primary.title + '</div>';
-                    html += '<div class="timeline-subtitle">' + primary.institution + '</div>';
+                    html += '<div class="timeline-subtitle">' + institutionHtml(primary) + '</div>';
                     html += '<div class="timeline-location">' + primary.location + '</div>';
                     if (primary.description) {
                         html += '<div class="timeline-description">' + primary.description + '</div>';
@@ -111,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         html += '<div class="concurrent-badge">Concurrent</div>';
                         html += '<div class="timeline-date-inline">' + formatDate(c.start) + ' – ' + formatDate(c.end) + '</div>';
                         html += '<div class="timeline-title">' + c.title + '</div>';
-                        html += '<div class="timeline-subtitle">' + c.institution + '</div>';
+                        html += '<div class="timeline-subtitle">' + institutionHtml(c) + '</div>';
                         html += '<div class="timeline-location">' + c.location + '</div>';
                         if (c.description) {
                             html += '<div class="timeline-description">' + c.description + '</div>';
